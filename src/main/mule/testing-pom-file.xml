@@ -130,7 +130,7 @@ output application/json
 output application/json
 ---
 {
-  message: "IS alive and Kiking"
+  message: "IS alive and Kiking successfully"
 } as Object {encoding: "UTF-8", mediaType: "application/json"}]]></ee:set-payload>
             </ee:message>
         </ee:transform>
