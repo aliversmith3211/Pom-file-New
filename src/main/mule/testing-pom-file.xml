@@ -87,7 +87,7 @@ output application/json
                         <ee:set-payload><![CDATA[%dw 2.0
 output application/json
 ---
-{message: "Not Implemented From github"}]]></ee:set-payload>
+{message: "Not Implemented From anypoint"}]]></ee:set-payload>
                     </ee:message>
                     <ee:variables>
                         <ee:set-variable variableName="httpStatus"><![CDATA[501]]></ee:set-variable>
