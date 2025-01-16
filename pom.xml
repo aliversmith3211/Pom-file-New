@@ -1,24 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.mycompany</groupId>
+	<groupId>d7d290d6-5c6f-48c6-9679-4f1846c6578a</groupId>
 	<artifactId>testing-pom-file</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.4</version>
 	<packaging>mule-application</packaging>
 
 	<name>testing-pom-file</name>
 
+	<description/>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
 		<app.runtime>4.8.0</app.runtime>
 		<mule.maven.plugin.version>4.3.0</mule.maven.plugin.version>
+		<tags/>
+		<categories>[]</categories>
+		<fields>[]</fields>
 	</properties>
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.mule.tools.maven</groupId>
+						<artifactId>mule-maven-plugin</artifactId>
+						<version>${mule.maven.plugin.version}</version>
+						<extensions>true</extensions>
+						<configuration>
+							<cloudhub2Deployment>
+								<applicationName>cp-dev-testing-pom-file</applicationName>
+								<businessGroup>Chargepoint</businessGroup>
+								<environment>Dev</environment>
+								<properties>
+									<env>Dev</env>
+									<apiId>20138875</apiId>
+									<anypoint.platform.client_id>28f3e7f6c36e44cf933cd88fd4b1502f</anypoint.platform.client_id>
+									<anypoint.platform.client_secret>EF6c5382c1294a40be781161E3380627</anypoint.platform.client_secret>
+								</properties>
+							</cloudhub2Deployment>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
 
+		<profile>
+			<id>uat</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.mule.tools.maven</groupId>
+						<artifactId>mule-maven-plugin</artifactId>
+						<version>${mule.maven.plugin.version}</version>
+						<extensions>true</extensions>
+						<configuration>
+							<cloudhub2Deployment>
+								<applicationName>cp-uat-testing-pomfile</applicationName>
+								<environment>Uat</environment>
+
+								<properties>
+									<env>uat</env>
+									<apiId>20139036</apiId>
+									<anypoint.platform.client_id>1e100d8cd48e4ba9adc65627a7142fe8</anypoint.platform.client_id>
+									<anypoint.platform.client_secret>1e100d8cd48e4ba9adc65627a7142fe8</anypoint.platform.client_secret>
+								</properties>
+							</cloudhub2Deployment>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 	<build>
 		<plugins>
 			<plugin>
@@ -39,11 +95,9 @@
 						<username>smith3211</username>
 						<password>Smith@3211</password>
 						<businessGroupId>d6f34707-ab0c-4677-bc58-00aafe30c498</businessGroupId>
-						<applicationName>testing-pom-file</applicationName>
-						<environment>Dev</environment>
 						<target>Cloudhub-US-East-2</target>
 						<replicas>1</replicas>
-						<vCores>1</vCores>					
+						<vCores>1</vCores>
 					</cloudhub2Deployment>
 				</configuration>
 			</plugin>
